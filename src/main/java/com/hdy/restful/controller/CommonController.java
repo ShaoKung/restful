@@ -1,12 +1,15 @@
 package com.hdy.restful.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @program: restful
@@ -20,13 +23,24 @@ import java.util.List;
 @RequestMapping(value="/common")
 public class CommonController {
 
+
     @RequestMapping(value="/{resource}/{id}", method= RequestMethod.GET)
-    public List<Object> getResourceByID(@PathVariable String resource,@PathVariable Long id) {
+    public Object getResourceByID(@PathVariable String resource,@PathVariable Long id) {
         List<Object> re = new ArrayList<Object>();
+        Map reMap=new HashMap<>(16);
+        //数据库查询resource对应的配置
+        Map<String,String> config=null;
+        //如果没配置则抛出异常，否则继续进行
         if(resource.equals("")){
-            throw new RuntimeException("请传入资源名称");
+            reMap.put("code","9999");
+            reMap.put("desc","执行异常");
+            reMap.put("data",re);
+        }else{
+            reMap.put("code","0000");
+            reMap.put("desc","执行成功");
+            reMap.put("data",re);
         }
-        return re;
+        return reMap;
     }
 
     @RequestMapping(value="/{resource}/{id}", method= RequestMethod.DELETE)
