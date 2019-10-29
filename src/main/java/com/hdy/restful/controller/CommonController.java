@@ -28,7 +28,7 @@ public class CommonController {
     public Object getResourceByID(@PathVariable String resource,@PathVariable Long id) {
         List<Object> re = new ArrayList<Object>();
         Map reMap=new HashMap<>(16);
-        //数据库查询resource对应的配置，配置信息包含，【配置唯一ID，查询字段，资源名，查询的SQL，描述】
+        //数据库查询resource对应的配置，配置信息包含，【配置唯一ID，资源名，需要返回的字段，查询的SQL，是否只支持查询【0：只支持查询，1：支持更新】，描述】
         Map<String,String> config=null;
         //如果没配置则抛出异常，否则继续进行
         if(resource.equals("")){
