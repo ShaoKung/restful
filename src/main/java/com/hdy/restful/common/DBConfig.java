@@ -24,7 +24,7 @@ public class DBConfig {
     private Environment environment;
 
     public DataSource paramDatasource() {
-        return createDataSource("param");
+        return createDataSource("spring");
     }
 
     @Bean("paramNamedJdbcTemplate")
@@ -40,19 +40,6 @@ public class DBConfig {
         dataSource.setUrl(environment.getProperty(datasourceKey + ".datasource.url"));
         dataSource.setUsername(environment.getProperty(datasourceKey + ".datasource.username"));
         dataSource.setPassword(environment.getProperty(datasourceKey + ".datasource.password"));
-        dataSource.setMaxActive(Integer.parseInt(environment.getProperty(datasourceKey + ".datasource.maxActive", "8")));
-        dataSource.setMaxIdle(Integer.parseInt(environment.getProperty(datasourceKey + ".datasource.maxIdle", "8")));
-        dataSource.setMinIdle(Integer.parseInt(environment.getProperty(datasourceKey + ".datasource.minIdle", "0")));
-        dataSource.setInitialSize(Integer.parseInt(environment.getProperty(datasourceKey + ".datasource.initialSize", "0")));
-        dataSource.setTestOnReturn(Boolean.parseBoolean(environment.getProperty(datasourceKey + ".datasource.testOnReturn", "false")));
-        dataSource.setTestWhileIdle(Boolean.parseBoolean(environment.getProperty(datasourceKey + ".datasource.testWhileIdle", "false")));
-        dataSource.setTestOnBorrow(Boolean.parseBoolean(environment.getProperty(datasourceKey + ".datasource.testOnBorrow", "true")));
-        dataSource.setLogAbandoned(Boolean.parseBoolean(environment.getProperty(datasourceKey + ".datasource.logAbandoned", "false")));
-        dataSource.setValidationQuery(environment.getProperty(datasourceKey + ".datasource.validationQuery"));
-        dataSource.setTimeBetweenEvictionRunsMillis(Long.parseLong(environment.getProperty(datasourceKey + ".datasource.timeBetweenEvictionRunsMillis", "-1")));
-        dataSource.setMinEvictableIdleTimeMillis(Long.parseLong(environment.getProperty(datasourceKey + ".datasource.minEvictableIdleTimeMillis", "1800000")));
-        dataSource.setRemoveAbandoned(Boolean.parseBoolean(environment.getProperty(datasourceKey + ".datasource.removeAbandoned", "false")));
-
         return dataSource;
     }
 

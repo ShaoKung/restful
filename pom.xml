@@ -8,7 +8,7 @@
 		<version>1.4.2.RELEASE</version>
 	</parent>
 	<groupId>com.hdy.restful</groupId>
-	<artifactId>demo</artifactId>
+	<artifactId>restful</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>demo</name>
 	<description>Demo project for Spring Boot</description>
@@ -23,11 +23,16 @@
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 
-		<!--个人新增-->
+		<!--个人新增开始-->
 		<dependency>
 			<groupId>commons-dbcp</groupId>
 			<artifactId>commons-dbcp</artifactId>
 			<version>1.4</version>
+		</dependency>
+
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
 		</dependency>
 
 		<dependency>
@@ -40,7 +45,7 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
-		<!--个人新增-->
+		<!--个人新增结束-->
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
