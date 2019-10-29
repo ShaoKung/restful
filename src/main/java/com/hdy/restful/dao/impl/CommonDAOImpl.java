@@ -5,6 +5,7 @@ import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import java.util.List;
 import java.util.Map;
 import org.apache.log4j.Logger;
+import org.springframework.stereotype.Component;
 
 /**
  * @program: restful
@@ -13,6 +14,7 @@ import org.apache.log4j.Logger;
  * @create: 2019-10-30 00:02
  **/
 
+@Component
 public abstract class CommonDAOImpl implements CommonDAO {
 
     private final Logger logger = Logger.getLogger(this.getClass());

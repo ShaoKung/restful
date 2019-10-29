@@ -7,5 +7,5 @@ import java.util.Map;
 
 
 public interface ResourceService {
-    List<Map<String,Object>> na();
+    List<Map<String,Object>> getResourceALL(String resource,Long pSize,Long sPage, Long ePage);
 }
