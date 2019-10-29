@@ -1,13 +1,13 @@
-create database param ;
+CREATE DATABASE PARAM ;
 
-create table T_PARAM_SQL_CONFIG(
+CREATE TABLE T_PARAM_SQL_CONFIG(
 
 
 
 
 );
 
-create table T_PARAM_COMMON_CONFIG(
+CREATE TABLE T_PARAM_COMMON_CONFIG(
 
 
 
