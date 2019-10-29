@@ -33,7 +33,6 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-jdbc</artifactId>
-			<version>1.4.2</version>
 			<exclusions>
 				<exclusion>
 					<groupId>org.apache.tomcat</groupId>
@@ -90,7 +89,6 @@
 					<dependency>
 						<groupId>org.springframework.restdocs</groupId>
 						<artifactId>spring-restdocs-asciidoctor</artifactId>
-						<version>${spring-restdocs.version}</version>
 					</dependency>
 				</dependencies>
 			</plugin>
