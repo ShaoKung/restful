@@ -30,10 +30,10 @@ public class CommonController {
     private ResourceService resourceService;
 
     @RequestMapping(value="/{resource}/{pSize}/{sPage}/{ePage}", method= RequestMethod.GET)
-    public List<Map<String,Object>> getResourceALL(@PathVariable String resource,@PathVariable Long id) {
+    public List<Map<String,Object>> getResourceALL(@PathVariable String resource,@PathVariable Long pSize,@PathVariable Long sPage,@PathVariable Long ePage) {
         List<Map<String,Object>> re = resourceService.na();
 
-        if(resource.equals("")){
+        if(resource.equals("")||resource.isEmpty()){
             throw new RuntimeException("请传入资源名称");
         }
         return re;
