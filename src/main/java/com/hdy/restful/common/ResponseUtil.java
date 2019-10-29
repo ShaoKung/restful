@@ -1,5 +1,7 @@
 package com.hdy.restful.common;
 
+import org.springframework.stereotype.Component;
+
 /**
  * @program: restful
  * @description: 返回数据格式工具类
@@ -7,6 +9,7 @@ package com.hdy.restful.common;
  * @create: 2019-10-29 15:27
  **/
 
+@Component
 public class ResponseUtil {
     private String code ;
     private String desc ;
