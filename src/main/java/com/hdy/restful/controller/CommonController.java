@@ -23,6 +23,14 @@ import java.util.Map;
 @RequestMapping(value="/common")
 public class CommonController {
 
+    @RequestMapping(value="/{resource}", method= RequestMethod.DELETE)
+    public List<Object> getResourceALL(@PathVariable String resource,@PathVariable Long id) {
+        List<Object> re = new ArrayList<Object>();
+        if(resource.equals("")){
+            throw new RuntimeException("请传入资源名称");
+        }
+        return re;
+    }
 
     @RequestMapping(value="/{resource}/{id}", method= RequestMethod.GET)
     public Object getResourceByID(@PathVariable String resource,@PathVariable Long id) {
@@ -52,14 +60,6 @@ public class CommonController {
         return re;
     }
 
-    @RequestMapping(value="/{resource}", method= RequestMethod.DELETE)
-    public List<Object> getResourceALL(@PathVariable String resource,@PathVariable Long id) {
-        List<Object> re = new ArrayList<Object>();
-        if(resource.equals("")){
-            throw new RuntimeException("请传入资源名称");
-        }
-        return re;
-    }
 
     @RequestMapping(value="/{resource}/{id}", method= RequestMethod.PUT)
     public List<Object> saveResource(@PathVariable String resource,@PathVariable Long id) {
