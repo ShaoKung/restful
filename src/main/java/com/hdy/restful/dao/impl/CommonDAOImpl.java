@@ -14,7 +14,7 @@ import org.springframework.stereotype.Component;
  * @create: 2019-10-30 00:02
  **/
 
-@Component
+
 public abstract class CommonDAOImpl implements CommonDAO {
 
     private final Logger logger = Logger.getLogger(this.getClass());

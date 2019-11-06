@@ -20,8 +20,8 @@ import java.util.Map;
 @Component
 public class ResourceServiceImpl implements ResourceService {
 
-    @Autowired(required=true)
-    protected CommonDAO commonDAO;
+    @Autowired
+    private CommonDAO commonDAO;
 
     @Override
     public List<Map<String, Object>> getResourceALL(String resource,Long pSize,Long sPage, Long ePage) {

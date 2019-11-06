@@ -1,6 +1,7 @@
 package com.hdy.restful.dao;
 
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Map;
@@ -12,6 +13,7 @@ import java.util.Map;
  * @create: 2019-10-29 23:58
  **/
 
+@Repository
 public interface CommonDAO {
 
     /**

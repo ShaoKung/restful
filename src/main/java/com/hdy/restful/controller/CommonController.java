@@ -25,7 +25,7 @@ import java.util.Map;
 @RequestMapping(value="/common")
 public class CommonController {
 
-    @Autowired(required=true)
+    @Autowired
     private ResourceService resourceService;
 
     @RequestMapping(value="/{resource}/{pSize}/{sPage}/{ePage}", method= RequestMethod.GET)
@@ -33,7 +33,7 @@ public class CommonController {
         if(resource.equals("")||resource.isEmpty()){
             throw new RuntimeException("请传入资源名称");
         }
-        List<Map<String,Object>> re = resourceService.getResourceALL(resource, pSize, sPage, ePage);
+        List<Map<String,Object>> re = null;//resourceService.getResourceALL(resource, pSize, sPage, ePage);
         return re;
     }
 
@@ -54,33 +54,5 @@ public class CommonController {
             reMap.put("data",re);
         }
         return reMap;
-    }
-
-    @RequestMapping(value="/{resource}/{id}", method= RequestMethod.DELETE)
-    public List<Object> delResource(@PathVariable String resource,@PathVariable Long id) {
-        List<Object> re = new ArrayList<Object>();
-        if(resource.equals("")){
-            throw new RuntimeException("请传入资源名称");
-        }
-        return re;
-    }
-
-
-    @RequestMapping(value="/{resource}/{id}", method= RequestMethod.PUT)
-    public List<Object> saveResource(@PathVariable String resource,@PathVariable Long id) {
-        List<Object> re = new ArrayList<Object>();
-        if(resource.equals("")){
-            throw new RuntimeException("请传入资源名称");
-        }
-        return re;
-    }
-
-    @RequestMapping(value="/{resource}/{id}", method= RequestMethod.POST)
-    public List<Object> updateResource(@PathVariable String resource,@PathVariable Long id) {
-        List<Object> re = new ArrayList<Object>();
-        if(resource.equals("")){
-            throw new RuntimeException("请传入资源名称");
-        }
-        return re;
     }
 }
