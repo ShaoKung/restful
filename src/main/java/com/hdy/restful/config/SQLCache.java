@@ -1,4 +1,4 @@
-package com.hdy.restful.common;
+package com.hdy.restful.config;
 
 import org.springframework.context.annotation.Lazy;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;

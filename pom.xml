@@ -45,6 +45,13 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
+
+		<!-- swagger -->
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger2</artifactId>
+			<version>2.9.2</version>
+		</dependency>
 		<!--个人新增结束-->
 
 		<dependency>
