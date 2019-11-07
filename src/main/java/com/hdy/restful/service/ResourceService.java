@@ -1,6 +1,6 @@
 package com.hdy.restful.service;
 
-import com.hdy.restful.entity.Order;
+import com.hdy.restful.entity.Resource;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
@@ -9,4 +9,4 @@ import java.util.Map;
 
 
 public interface ResourceService {
-    public List<Order> findAll();}
+    public List<Map<String,Object>> findAll(Map param);}

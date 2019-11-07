@@ -1,6 +1,7 @@
 package com.hdy.restful.controller;
 
 import com.hdy.restful.dao.CommonDAO;
+import com.hdy.restful.entity.Resource;
 import com.hdy.restful.service.ResourceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -37,7 +38,15 @@ public class CommonController {
         if(resource.equals("")||resource.isEmpty()){
             throw new RuntimeException("请传入资源名称");
         }
-        return new ArrayList<>();
+        Map param=new HashMap();
+        param.put("resource",resource);
+        param.put("pSize",pSize);
+        param.put("sPage",sPage);
+        param.put("ePage",ePage);
+        List<Map<String,Object>> re=new ArrayList<>();
+        re=commonDAO.findAll(param);
+
+        return re;
     }
 
 }
