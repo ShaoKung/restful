@@ -27,4 +27,9 @@ public class ResourceServiceImpl implements ResourceService {
     public List<Map<String,Object>> findAll(Map param) {
         return commonDAO.findAll(param);
     }
+
+    @Override
+    public List<Map<String,Object>> findOneById(Map param){
+        return commonDAO.findOneById(param);
+    }
 }

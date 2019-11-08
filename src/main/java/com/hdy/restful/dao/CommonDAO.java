@@ -7,6 +7,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Repository;
 
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -28,11 +29,26 @@ public class CommonDAO {
     NamedParameterJdbcTemplate namedParameterJdbcTemplate;
 
     public List<Map<String,Object>> findAll(Map param) {
-        Map paramMap=new HashMap();
-        paramMap.put("ID",1);
-        String sql = "SELECT * FROM T_COMMON_RESOURCE where ID=:ID";
-        //return jdbcTemplate.queryForList(sql, 1);
-        //jdbcTemplate.queryForList(sql,new String[]{"",""});
-        return namedParameterJdbcTemplate.queryForList(sql,paramMap);
+        String rSql = "SELECT * FROM T_COMMON_RESOURCE where resName=:resource";
+        String sql="";
+        List<Map<String,Object>> sqlConfig= namedParameterJdbcTemplate.queryForList(rSql,param);
+        if(sqlConfig.size()>0){
+            Map<String,Object> mapConfig=sqlConfig.get(0);
+            sql=(String)mapConfig.get("RESV1");
+        }
+        List<Map<String,Object>> reList= namedParameterJdbcTemplate.queryForList(sql,param);
+        return reList;
+    }
+
+    public List<Map<String,Object>> findOneById(Map param) {
+        String rSql = "SELECT * FROM T_COMMON_RESOURCE where resName=:resource";
+        String sql="";
+        List<Map<String,Object>> sqlConfig= namedParameterJdbcTemplate.queryForList(rSql,param);
+        if(sqlConfig.size()>0){
+            Map<String,Object> mapConfig=sqlConfig.get(0);
+            sql=(String)mapConfig.get("RESV1");
+        }
+        List<Map<String,Object>> reList= namedParameterJdbcTemplate.queryForList(sql,param);
+        return reList;
     }
 }

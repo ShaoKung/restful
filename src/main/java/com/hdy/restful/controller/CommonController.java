@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.logging.Logger;
 
 /**
  * @program: restful
@@ -25,6 +26,7 @@ import java.util.Map;
 @RestController
 @RequestMapping(value="/common")
 public class CommonController {
+    protected static Logger logger;
 
     @Autowired
     private ResourceService resourceService;
@@ -35,17 +37,31 @@ public class CommonController {
 
     @RequestMapping(value="/{resource}/{pSize}/{sPage}/{ePage}", method= RequestMethod.GET)
     public List<Map<String,Object>> getResourceALL(@PathVariable String resource,@PathVariable Long pSize,@PathVariable Long sPage,@PathVariable Long ePage) {
-        if(resource.equals("")||resource.isEmpty()){
-            throw new RuntimeException("请传入资源名称");
+        List<Map<String,Object>> re = new ArrayList<>();
+        if(resource.equals("")||resource.isEmpty()||pSize==0||sPage==null||ePage==null){
+            logger.info("必传参数为空");
+            return re;
         }
         Map param=new HashMap();
         param.put("resource",resource);
         param.put("pSize",pSize);
         param.put("sPage",sPage);
         param.put("ePage",ePage);
-        List<Map<String,Object>> re=new ArrayList<>();
-        re=commonDAO.findAll(param);
+        re=resourceService.findAll(param);
+        return re;
+    }
 
+    @RequestMapping(value="/{resource}/{id}", method= RequestMethod.GET)
+    public List<Map<String,Object>> getResourceOneById(@PathVariable String resource,@PathVariable Long id) {
+        List<Map<String,Object>> re = new ArrayList<>();
+        if(resource.equals("")||resource.isEmpty()||id==null){
+            logger.info("必传参数为空");
+            return re;
+        }
+        Map param=new HashMap();
+        param.put("resource",resource);
+        param.put("id",id);
+        re=resourceService.findOneById(param);
         return re;
     }
 
