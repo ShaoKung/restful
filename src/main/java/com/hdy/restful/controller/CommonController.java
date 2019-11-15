@@ -52,8 +52,8 @@ public class CommonController {
     }
 
     @RequestMapping(value="/{resource}/{id}", method= RequestMethod.GET)
-    public List<Map<String,Object>> getResourceOneById(@PathVariable String resource,@PathVariable Long id) {
-        List<Map<String,Object>> re = new ArrayList<>();
+    public Map<String,Object> getResourceOneById(@PathVariable String resource,@PathVariable Long id) {
+        Map<String,Object> re = new HashMap<>(16);
         if(resource.equals("")||resource.isEmpty()||id==null){
             logger.info("必传参数为空");
             return re;
@@ -61,8 +61,7 @@ public class CommonController {
         Map param=new HashMap();
         param.put("resource",resource);
         param.put("id",id);
-        re=resourceService.findOneById(param);
-        return re;
+        return resourceService.findOneById(param);
     }
 
 }

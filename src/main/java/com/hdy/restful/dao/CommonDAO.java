@@ -40,7 +40,7 @@ public class CommonDAO {
         return reList;
     }
 
-    public List<Map<String,Object>> findOneById(Map param) {
+    public Map<String,Object> findOneById(Map param) {
         String rSql = "SELECT * FROM T_COMMON_RESOURCE where resName=:resource";
         String sql="";
         List<Map<String,Object>> sqlConfig= namedParameterJdbcTemplate.queryForList(rSql,param);
@@ -48,7 +48,7 @@ public class CommonDAO {
             Map<String,Object> mapConfig=sqlConfig.get(0);
             sql=(String)mapConfig.get("RESV1");
         }
-        List<Map<String,Object>> reList= namedParameterJdbcTemplate.queryForList(sql,param);
-        return reList;
+        Map<String,Object> reMap= namedParameterJdbcTemplate.queryForMap(sql,param);
+        return reMap;
     }
 }

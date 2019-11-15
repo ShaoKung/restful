@@ -29,7 +29,7 @@ public class ResourceServiceImpl implements ResourceService {
     }
 
     @Override
-    public List<Map<String,Object>> findOneById(Map param){
+    public Map<String,Object> findOneById(Map param){
         return commonDAO.findOneById(param);
     }
 }

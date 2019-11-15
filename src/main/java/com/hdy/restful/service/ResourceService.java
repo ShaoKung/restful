@@ -11,5 +11,5 @@ import java.util.Map;
 public interface ResourceService {
     public List<Map<String,Object>> findAll(Map param);
 
-    public List<Map<String,Object>> findOneById(Map param);
+    public Map<String,Object> findOneById(Map param);
 }
