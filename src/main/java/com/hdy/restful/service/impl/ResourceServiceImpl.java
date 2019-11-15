@@ -1,12 +1,9 @@
 package com.hdy.restful.service.impl;
 
 import com.hdy.restful.dao.CommonDAO;
-import com.hdy.restful.entity.Resource;
 import com.hdy.restful.service.ResourceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
