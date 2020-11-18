@@ -17,7 +17,7 @@ pipeline {
                 sh "cd /home/admin/.jenkins/workspace/PipeLine"
 
                 // Run Maven on a Unix agent.
-                sh  "/home/admin/app/apache-maven-3.2.5/bin/mvn -Dmaven.test.skip=true=true clean package"
+                sh  "/home/admin/app/apache-maven-3.2.5/bin/mvn -Dmaven.test.skip=true clean package"
 
                 // To run Maven on a Windows agent, use
                 // bat "mvn -Dmaven.test.failure.ignore=true clean package"
